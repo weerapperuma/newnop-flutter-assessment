@@ -1,0 +1,35 @@
+name: newnop_flutter_assessment
+description: "Flutter product catalogue app — Associate Flutter Developer assessment for Newnop."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State management
+  flutter_riverpod: ^2.6.1
+
+  # Favourites persistence (bonus requirement)
+  shared_preferences: ^2.3.3
+
+  # Image loading with caching + placeholder/error handling
+  cached_network_image: ^3.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/products.json
