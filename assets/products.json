@@ -1,0 +1,50 @@
+[
+  {
+    "id": "p1",
+    "name": "Nordic Scandi Oak Lounge Chair",
+    "category": "Furniture",
+    "price": 349.00,
+    "imageUrl": "https://picsum.photos/seed/chair/600/750",
+    "description": "A minimalist oak wood lounge chair with clean lines and soft upholstery, built for long, comfortable evenings at home."
+  },
+  {
+    "id": "p2",
+    "name": "Aura Sound ANC Wireless Headphones",
+    "category": "Gadgets",
+    "price": 299.00,
+    "imageUrl": "https://picsum.photos/seed/headphones/600/750",
+    "description": "Matte black over-ear headphones with adaptive noise cancelling, 30-hour battery life, and plush leather ear cups."
+  },
+  {
+    "id": "p3",
+    "name": "Terra Sculptural Table Lamp",
+    "category": "Lighting",
+    "price": 185.00,
+    "imageUrl": "https://picsum.photos/seed/lamp/600/750",
+    "description": "A sculptural ceramic table lamp with a textured terracotta base and a wide linen shade, casting warm, diffused light."
+  },
+  {
+    "id": "p4",
+    "name": "Logos Slim Mechanical Keyboard",
+    "category": "Gadgets",
+    "price": 145.00,
+    "imageUrl": "https://picsum.photos/seed/keyboard/600/750",
+    "description": "Ultra-thin mechanical keyboard with a silver aluminum chassis, low-profile keys, and hot-swappable switches."
+  },
+  {
+    "id": "p5",
+    "name": "Prism Glass Geometric Vase",
+    "category": "Decor",
+    "price": 79.00,
+    "imageUrl": "https://picsum.photos/seed/vase/600/750",
+    "description": "An abstract geometric glass vase with an iridescent finish that refracts light into soft prisms across any room."
+  },
+  {
+    "id": "p6",
+    "name": "Sphere Gen 3 Smart Audio System",
+    "category": "Gadgets",
+    "price": 120.00,
+    "imageUrl": "https://picsum.photos/seed/speaker/600/750",
+    "description": "A smart circular speaker wrapped in premium acoustic fabric, blending seamlessly into any home environment."
+  }
+]
