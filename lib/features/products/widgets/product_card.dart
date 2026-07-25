@@ -54,26 +54,28 @@ class ProductCard extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _CategoryChip(label: product.category),
-                  const SizedBox(height: 6),
-                  Text(
-                    product.name,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, height: 1.3),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    '\$${product.price.toStringAsFixed(2)}',
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: scheme.primary),
-                  ),
-                ],
-              ),
+            Expanded(
+              child:Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _CategoryChip(label: product.category),
+                    const SizedBox(height: 6),
+                    Text(
+                      product.name,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, height: 1.3),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      '\$${product.price.toStringAsFixed(2)}',
+                      style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: scheme.primary),
+                    ),
+                  ],
+                ),
+              )
             ),
           ],
         ),

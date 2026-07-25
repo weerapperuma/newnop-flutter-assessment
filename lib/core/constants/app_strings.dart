@@ -76,7 +76,7 @@ class AppStrings {
   // ===== Placeholders =====
   static const String productNamePlaceholder = 'Product Name';
   static const String productDescriptionPlaceholder = 'Product description goes here...';
-  static const String pricePlaceholder = '\$0.00';
+  static const String pricePlaceholder = 'LKR 0.00';
   static const String imagePlaceholder = 'No image available';
 
   // ===== Filters =====

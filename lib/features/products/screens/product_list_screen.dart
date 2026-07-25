@@ -4,7 +4,7 @@ import '../../../core/theme/theme_provider.dart';
 import '../../../shared/widgets/loading_view.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../../../shared/widgets/empty_view.dart';
-// import '../../favourites/providers/favourites_provider.dart';
+import '../../favourite/providers/favourites_provider.dart';
 import '../providers/product_list_provider.dart';
 import '../widgets/product_card.dart';
 import '../widgets/product_search_bar.dart';
@@ -16,7 +16,7 @@ class ProductListScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final filtered = ref.watch(filteredProductsProvider);
-    // final favourites = ref.watch(favouritesProvider);
+    final favourites = ref.watch(favouritesProvider);
     final searchQuery = ref.watch(searchQueryProvider);
     final themeMode = ref.watch(themeProvider);
 
@@ -34,7 +34,7 @@ class ProductListScreen extends ConsumerWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // const ProductSearchBar(),
+            const ProductSearchBar(),
             const SizedBox(height: 16),
             Expanded(
               child: filtered.when(
@@ -58,22 +58,22 @@ class ProductListScreen extends ConsumerWidget {
                       crossAxisCount: 2,
                       mainAxisSpacing: 12,
                       crossAxisSpacing: 12,
-                      childAspectRatio: 0.62,
+                      childAspectRatio: 0.52,
                     ),
                     itemBuilder: (context, index) {
                       final product = products[index];
-                      // return ProductCard(
-                      //   product: product,
-                      //   isFavourite: favourites.contains(product.id),
-                      //   onFavouriteToggle: () =>
-                      //       ref.read(favouritesProvider.notifier).toggle(product.id),
-                      //   onTap: () => Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (_) => ProductDetailsScreen(product: product),
-                      //     ),
-                      //   ),
-                      // );
+                      return ProductCard(
+                        product: product,
+                        isFavourite: favourites.contains(product.id),
+                        onFavouriteToggle: () =>
+                            ref.read(favouritesProvider.notifier).toggle(product.id),
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ProductDetailsScreen(product: product),
+                          ),
+                        ),
+                      );
                     },
                   );
                 },
