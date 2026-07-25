@@ -15,6 +15,7 @@ class AppStrings {
   static const String searchEmptySubtitle = 'Try adjusting your search terms';
 
   // ===== Product List =====
+  static const String products = 'Products';
   static const String loadingProducts = 'Loading products...';
   static const String loadingError = 'Failed to load products';
   static const String loadingErrorSubtitle = 'Please check your connection and try again';
