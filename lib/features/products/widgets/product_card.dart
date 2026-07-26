@@ -37,7 +37,7 @@ class ProductCard extends StatelessWidget {
             Stack(
               children: [
                 AspectRatio(
-                  aspectRatio: 4 / 5,
+                  aspectRatio: 1, // square image, matches details screen
                   child: CachedNetworkImage(
                     imageUrl: product.imageUrl,
                     fit: BoxFit.cover,
@@ -56,18 +56,21 @@ class ProductCard extends StatelessWidget {
               ],
             ),
             Expanded(
-              child:Padding(
+              child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _CategoryChip(label: product.category),
                     const SizedBox(height: 6),
-                    Text(
-                      product.name,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, height: 1.3),
+                    Flexible(
+                      child: Text(
+                        product.name,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, height: 1.3),
+                      ),
                     ),
                     const SizedBox(height: 6),
                     Text(
@@ -76,7 +79,7 @@ class ProductCard extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
             ),
           ],
         ),

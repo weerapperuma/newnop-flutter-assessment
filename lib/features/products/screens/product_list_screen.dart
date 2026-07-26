@@ -13,6 +13,20 @@ import 'product_details_screen.dart';
 class ProductListScreen extends ConsumerWidget {
   const ProductListScreen({super.key});
 
+  int _crossAxisCountFor(double width) {
+    if (width >= 900) return 4; // large tablets / landscape tablets
+    if (width >= 600) return 3; // small tablets / large phones landscape
+    return 2; // phones
+  }
+
+  double _aspectRatioFor(int crossAxisCount) {
+    // Image is now square (1:1), so card height ≈ card width + fixed text
+    // block height. Ratios recalculated for that, not the old 4:5 image.
+    if (crossAxisCount >= 4) return 0.65;
+    if (crossAxisCount == 3) return 0.70;
+    return 0.60;
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final filtered = ref.watch(filteredProductsProvider);
@@ -25,7 +39,9 @@ class ProductListScreen extends ConsumerWidget {
         title: const Text('Products'),
         actions: [
           IconButton(
-            icon: Icon(themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode),
+            icon: Icon(
+              themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode,
+            ),
             onPressed: () => ref.read(themeProvider.notifier).toggle(),
           ),
         ],
@@ -40,39 +56,54 @@ class ProductListScreen extends ConsumerWidget {
               child: filtered.when(
                 loading: () => const LoadingView(),
                 error: (err, _) => ErrorView(
-                  message: 'Could not load products. Check your connection and try again.',
-                  onRetry: () => ref.read(productListProvider.notifier).retry(),
+                  message:
+                  'Could not load products. Check your connection and try again.',
+                  onRetry: () =>
+                      ref.read(productListProvider.notifier).retry(),
                 ),
                 data: (products) {
                   if (products.isEmpty) {
                     return EmptyView(
-                      icon: searchQuery.isEmpty ? Icons.inventory_2_outlined : Icons.search_off,
+                      icon: searchQuery.isEmpty
+                          ? Icons.inventory_2_outlined
+                          : Icons.search_off,
                       message: searchQuery.isEmpty
                           ? 'No products available.'
                           : 'No results for "$searchQuery".',
                     );
                   }
-                  return GridView.builder(
-                    itemCount: products.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 12,
-                      crossAxisSpacing: 12,
-                      childAspectRatio: 0.52,
-                    ),
-                    itemBuilder: (context, index) {
-                      final product = products[index];
-                      return ProductCard(
-                        product: product,
-                        isFavourite: favourites.contains(product.id),
-                        onFavouriteToggle: () =>
-                            ref.read(favouritesProvider.notifier).toggle(product.id),
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => ProductDetailsScreen(product: product),
-                          ),
+                  return LayoutBuilder(
+                    builder: (context, constraints) {
+                      final crossAxisCount =
+                      _crossAxisCountFor(constraints.maxWidth);
+                      final aspectRatio = _aspectRatioFor(crossAxisCount);
+
+                      return GridView.builder(
+                        itemCount: products.length,
+                        gridDelegate:
+                        SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: crossAxisCount,
+                          mainAxisSpacing: 12,
+                          crossAxisSpacing: 12,
+                          childAspectRatio: aspectRatio,
                         ),
+                        itemBuilder: (context, index) {
+                          final product = products[index];
+                          return ProductCard(
+                            product: product,
+                            isFavourite: favourites.contains(product.id),
+                            onFavouriteToggle: () => ref
+                                .read(favouritesProvider.notifier)
+                                .toggle(product.id),
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    ProductDetailsScreen(product: product),
+                              ),
+                            ),
+                          );
+                        },
                       );
                     },
                   );
