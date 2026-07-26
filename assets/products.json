@@ -1,7 +1,7 @@
 [
   {
     "id": "p1",
-    "name": "Nordic Scandi Oak Lounge Chair",
+    "name": "Scandi Oak Lounge Chair",
     "category": "Furniture",
     "price": 349.00,
     "imageUrl": "https://picsum.photos/seed/chair/600/750",
@@ -9,7 +9,7 @@
   },
   {
     "id": "p2",
-    "name": "Aura Sound ANC Wireless Headphones",
+    "name": "Aura ANC Headphones",
     "category": "Gadgets",
     "price": 299.00,
     "imageUrl": "https://picsum.photos/seed/headphones/600/750",
@@ -17,7 +17,7 @@
   },
   {
     "id": "p3",
-    "name": "Terra Sculptural Table Lamp",
+    "name": "Terra Table Lamp",
     "category": "Lighting",
     "price": 185.00,
     "imageUrl": "https://picsum.photos/seed/lamp/600/750",
@@ -25,7 +25,7 @@
   },
   {
     "id": "p4",
-    "name": "Logos Slim Mechanical Keyboard",
+    "name": "Logos Mechanical Keyboard",
     "category": "Gadgets",
     "price": 145.00,
     "imageUrl": "https://picsum.photos/seed/keyboard/600/750",
@@ -33,7 +33,7 @@
   },
   {
     "id": "p5",
-    "name": "Prism Glass Geometric Vase",
+    "name": "Prism Glass Vase",
     "category": "Decor",
     "price": 79.00,
     "imageUrl": "https://picsum.photos/seed/vase/600/750",
@@ -41,7 +41,7 @@
   },
   {
     "id": "p6",
-    "name": "Sphere Gen 3 Smart Audio System",
+    "name": "Sphere Smart Speaker",
     "category": "Gadgets",
     "price": 120.00,
     "imageUrl": "https://picsum.photos/seed/speaker/600/750",

@@ -41,8 +41,8 @@ class ProductCard extends StatelessWidget {
                   child: CachedNetworkImage(
                     imageUrl: product.imageUrl,
                     fit: BoxFit.cover,
-                    placeholder: (_, __) => Container(color: scheme.surfaceContainerLow),
-                    errorWidget: (_, __, ___) => Container(
+                    placeholder: (context, url) => Container(color: scheme.surfaceContainerLow),
+                    errorWidget: (context, url, error) => Container(
                       color: scheme.surfaceContainerLow,
                       child: Icon(Icons.image_not_supported_outlined, color: scheme.outline),
                     ),
@@ -57,25 +57,34 @@ class ProductCard extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(10),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _CategoryChip(label: product.category),
-                    const SizedBox(height: 6),
-                    Flexible(
+                    const SizedBox(height: 4),
+                    Expanded(
                       child: Text(
                         product.name,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, height: 1.3),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                          height: 1.25,
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 4),
                     Text(
                       AppConstants.formatPrice(product.price),
-                      style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: scheme.primary),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                        color: scheme.primary,
+                      ),
                     ),
                   ],
                 ),
@@ -130,6 +139,8 @@ class _CategoryChip extends StatelessWidget {
       ),
       child: Text(
         label.toUpperCase(),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(
           fontSize: 10,
           fontWeight: FontWeight.w600,

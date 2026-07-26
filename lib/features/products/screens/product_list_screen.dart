@@ -19,12 +19,13 @@ class ProductListScreen extends ConsumerWidget {
     return 2; // phones
   }
 
-  double _aspectRatioFor(int crossAxisCount) {
-    // Image is now square (1:1), so card height ≈ card width + fixed text
-    // block height. Ratios recalculated for that, not the old 4:5 image.
-    if (crossAxisCount >= 4) return 0.65;
-    if (crossAxisCount == 3) return 0.70;
-    return 0.60;
+  double _aspectRatioFor(double availableWidth, int crossAxisCount) {
+    // Dynamic aspect ratio calculation based on available width:
+    // Card height = Card width (1:1 image) + target text details height (~116px)
+    const double crossAxisSpacing = 12.0;
+    final cardWidth = (availableWidth - (crossAxisSpacing * (crossAxisCount - 1))) / crossAxisCount;
+    const double targetTextHeight = 116.0;
+    return cardWidth / (cardWidth + targetTextHeight);
   }
 
   @override
@@ -76,7 +77,7 @@ class ProductListScreen extends ConsumerWidget {
                     builder: (context, constraints) {
                       final crossAxisCount =
                       _crossAxisCountFor(constraints.maxWidth);
-                      final aspectRatio = _aspectRatioFor(crossAxisCount);
+                      final aspectRatio = _aspectRatioFor(constraints.maxWidth, crossAxisCount);
 
                       return GridView.builder(
                         itemCount: products.length,
