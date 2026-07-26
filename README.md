@@ -152,14 +152,30 @@ place rather than repeated across widgets.
 
 ## Screenshots
 
+### Emulator / Tablet
+
 | Product List (Light) | Product List (Dark) |
 |---|---|
-| ![light](assets/Screenshot_light.png) | ![dark](assets/Screenshot_dark.png) |
+| ![light](screenshots/Screenshot_light.png) | ![dark](screenshots/Screenshot_dark.png) |
 
 | Product Details (Light) | Product Details (Dark) |
 |---|---|
-| ![details light](assets/Screenshot_detail.png) | ![details dark](assets/Screenshot_detaildark.png) |
+| ![details light](screenshots/Screenshot_detail.png) | ![details dark](screenshots/Screenshot_detaildark.png) |
 
 | Search |
 |---|
-| ![search](assets/Screenshot_search.png) |
+| ![search](screenshots/Screenshot_search.png) |
+
+### Real Device (Samsung Galaxy)
+
+| Home Screen (App Icon) | Product List (Light) |
+|---|---|
+| ![home screen](screenshots/newnop_project_1.jpeg) | ![list light](screenshots/newnop_project_2.jpeg) |
+
+| Product List (Dark) | Search (Dark) |
+|---|---|
+| ![list dark](screenshots/newnop_project_4.jpeg) | ![search dark](screenshots/newnop_project_3.jpeg) |
+
+| Product Details |
+|---|
+| ![details](screenshots/newnop_project_5.jpeg) |
