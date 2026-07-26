@@ -1,16 +1,20 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import '../../../core/constants/app_constants.dart';
+import 'package:newnop_flutter_assessment/features/favourite/data/favourites_repository_impl.dart';
+import '../data/favourites_repository.dart';
+
+final favouritesRepositoryProvider = Provider<FavouritesRepository>(
+      (ref) => FavouritesRepositoryImpl(),
+);
 
 class FavouritesNotifier extends StateNotifier<Set<String>> {
-  FavouritesNotifier() : super({}) {
+  final FavouritesRepository _repository;
+
+  FavouritesNotifier(this._repository) : super({}) {
     _load();
   }
 
   Future<void> _load() async {
-    final prefs = await SharedPreferences.getInstance();
-    final saved = prefs.getStringList(AppConstants.favouritesPrefsKey) ?? [];
-    state = saved.toSet();
+    state = await _repository.loadFavourites();
   }
 
   Future<void> toggle(String productId) async {
@@ -21,15 +25,11 @@ class FavouritesNotifier extends StateNotifier<Set<String>> {
       updated.add(productId);
     }
     state = updated;
-
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList(AppConstants.favouritesPrefsKey, updated.toList());
+    await _repository.saveFavourites(updated);
   }
-
-  bool isFavourite(String productId) => state.contains(productId);
 }
 
 final favouritesProvider =
 StateNotifierProvider<FavouritesNotifier, Set<String>>(
-      (ref) => FavouritesNotifier(),
+      (ref) => FavouritesNotifier(ref.read(favouritesRepositoryProvider)),
 );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:newnop_flutter_assessment/core/constants/app_constants.dart';
 import '../../../shared/models/product.dart';
 
 class ProductCard extends StatelessWidget {
@@ -70,7 +71,7 @@ class ProductCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      '\$${product.price.toStringAsFixed(2)}',
+                      AppConstants.formatPrice(product.price),
                       style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: scheme.primary),
                     ),
                   ],

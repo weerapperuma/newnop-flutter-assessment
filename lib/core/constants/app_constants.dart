@@ -15,4 +15,8 @@ class AppConstants {
   static const String themePrefsKey = 'theme_mode';
 
   static const Duration mockNetworkDelay = Duration(milliseconds: 900);
+
+  static String formatPrice(double price) {
+    return 'LKR ${price.toStringAsFixed(2)}';
+  }
 }
