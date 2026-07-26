@@ -148,8 +148,14 @@ place rather than repeated across widgets.
 
 ## Screenshots
 
-*(Add screenshots or a short screen recording here before submission — e.g.)*
+| Product List (Light) | Product List (Dark) |
+|---|---|
+| ![light](assets/Screenshot_light.png) | ![dark](assets/Screenshot_dark.png) |
 
-| Product List | Product Details                     |
-|---|-------------------------------------|
-| ![list](screenshots/list.png) | ![details](screenshots/screenshot_1.png) |
+| Product Details (Light) | Product Details (Dark) |
+|---|---|
+| ![details light](assets/Screenshot_detail.png) | ![details dark](assets/Screenshot_detaildark.png) |
+
+| Search |
+|---|
+| ![search](assets/Screenshot_search.png) |
