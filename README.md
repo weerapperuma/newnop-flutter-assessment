@@ -145,6 +145,10 @@ place rather than repeated across widgets.
   more "complete app" feel, but intentionally left it out to stay within the
   brief's 2-screen scope rather than add screens the requirements didn't ask
   for.
+## Downloads
+
+- **APK:** [Download](https://drive.google.com/file/d/1jqWS3ociqlhODyEfSsUoREsNl7LjdQXS/view?usp=drive_link)
+- **Demo Video:** [Watch](https://drive.google.com/file/d/1SvHQsZA_7NIFkbwXTk2iBO7Ijm8iekx2/view?usp=drive_link)
 
 ## Screenshots
 
