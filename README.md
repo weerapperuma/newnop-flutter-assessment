@@ -147,8 +147,8 @@ place rather than repeated across widgets.
   for.
 ## Downloads
 
-- **APK:** [Download](https://drive.google.com/file/d/1jqWS3ociqlhODyEfSsUoREsNl7LjdQXS/view?usp=drive_link)
-- **Demo Video:** [Watch](https://drive.google.com/file/d/1SvHQsZA_7NIFkbwXTk2iBO7Ijm8iekx2/view?usp=drive_link)
+- **APK:** [Download](https://drive.google.com/drive/folders/1mPomOQdnMFRXUhRN_IhAU6Xdz8RdRCCz?usp=drive_link)
+- **Demo Video:** [Watch](https://drive.google.com/file/d/1jqWS3ociqlhODyEfSsUoREsNl7LjdQXS/view?usp=drive_link)
 
 ## Screenshots
 
